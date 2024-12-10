@@ -31,7 +31,7 @@
 
 <!-- ===================================================================================================== -->
 
-<!------------------------------------------------- Angular directives --------------------------------------------------->
+<!------------------------------------------------- Angular structural directives --------------------------------------------------->
 
 <!----------------------------------------- old way -------------------------------------------->
 <!-- <h2 *ngIf="isLoggedIn; else message">{{ userName }}</h2> -->
@@ -135,26 +135,73 @@
 
 <!-------------------------------Ng for directive fetch array object----------------------------------------->
 
-<div *ngIf="usersObj.length == 0">
+<!-- <div *ngIf="usersObj.length == 0">
     <p>
         No users to display !!
     </p>
-</div>
+</div> -->
 
-<ul>
+<!-- <ul>
     <li *ngFor="let user of usersObj; let i = index;; let usersCount = count">
         {{ usersCount }} - {{ i }} - {{ user.email }}
     </li>
-</ul>
+</ul> -->
 
-<ul>
-    @for (user of usersObj; track user; let i = $index; let usersCount = $count) {
+<!-- <ul>
+    @if (usersObj.length == 0) {
+    <p>
+        No users to display !!
+    </p>
+    }
+    @for (user of usersObj; track user; let i = $index; let usersCount = $count; let first = $first; let last = $last) {
     <li>
-        {{ usersCount }} - {{ i }} - {{ user.name }}
+        {{ last }} - {{ first }} - {{ usersCount }} - {{ i }} - {{ user.name }}
         <button (click)="deleteUser(i)">Delete</button>
     </li>
     }
-</ul>
+    @empty {
+    <p>
+        No users to display empty method !!
+    </p>
+    }
+</ul> -->
 
 <!-------------------------------Change ditection----------------------------------------->
-<button (click)="addNewUser()">Add New User</button>
+<!-- <button (click)="addNewUser()">Add New User</button> -->
+
+<!--------------------------------------------------------------------Ng switch case directive----------------------------------------------------->
+
+<!-- <div [ngSwitch]="userRole">
+        <p *ngSwitchCase="'Admin'">Welcome Admin</p>
+        <p *ngSwitchCase="'Member'">Welcome Member</p>
+
+        <p *ngSwitchDefault>Please log in</p>
+    </div> -->
+
+<!-- @switch (userRole) {
+    @case ('Admin') {
+    <p>Welcome Admin</p>
+    }
+    @case ('Member') {
+    <p>Welcome Admin</p>
+    }
+    @default {
+    <p>Please log in</p>
+    }
+
+    } -->
+
+<!-- ===================================================================================================== -->
+
+<!------------------------------------------------- Angular attribute directives --------------------------------------------------->
+
+<!-- <h1 [style.color]="isLoggedIn? 'green' : 'red'" [style.textTransform]="isLoggedIn? 'uppercase' : 'lowercase'">Welcome
+    Admin</h1> -->
+
+<!-- <h1 [ngStyle]="{ 'color':isLoggedIn ? 'green':'red', 'textTransform':isLoggedIn ? 'uppercase':'lowercase' }">Ng style
+</h1> -->
+
+<!-- <h1 [class.login]="isLoggedIn" [class.logout]="!isLoggedIn">Class binding</h1> -->
+
+
+<h1 [ngClass]="{ 'login': isLoggedIn, 'logout':!isLoggedIn }">Class binding</h1>

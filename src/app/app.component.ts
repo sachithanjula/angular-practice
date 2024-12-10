@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgTemplateOutlet, NgFor],
+  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgTemplateOutlet, NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault, NgStyle, NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -63,27 +63,27 @@ export class AppComponent {
 
   // -----------------------------------------------------------------------------
 
-  users: Array<string> = ["Sachith", "Amal", "Kamal"];
+  // users: Array<string> = ["Sachith", "Amal", "Kamal"];
 
-  usersObj: Array<any> = [
+  // usersObj: Array<any> = [
    
-  ]
+  // ]
 
-  constructor () {
-    console.log(this.usersObj.length);
-  }
+  // constructor () {
+  //   console.log(this.usersObj.length);
+  // }
 
 
-  addNewUser () {
-    let user = {
-      id: 5,
-      name: "Nayani",
-      email: "nayani@gmai.com"
-    }
+  // addNewUser () {
+  //   let user = {
+  //     id: 5,
+  //     name: "Nayani",
+  //     email: "nayani@gmai.com"
+  //   }
 
-    this.usersObj.push(user);
+  //   this.usersObj.push(user);
 
-  }
+  // }
 
   // deleteUser(user: object) {
   //   let index = this.usersObj.indexOf(user);
@@ -91,9 +91,18 @@ export class AppComponent {
   //   this.usersObj.splice(index, 1);
   // }
 
-  deleteUser(index: number) {
-    this.usersObj.splice(index, 1);
-  }
+  // deleteUser(index: number) {
+  //   this.usersObj.splice(index, 1);
+  // }
+
+  
+  // -----------------------------------------------------------------------------
+
+  // userRole: string = "";
+
+  // -----------------------------------------------------------------------------
+  isLoggedIn: boolean = false;
+
 
 
 }
